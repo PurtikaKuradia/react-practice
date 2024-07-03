@@ -1,0 +1,9 @@
+tbody > tr:hover {
+    background: #d2d3fc !important;
+    cursor: pointer;
+  }
+thead > tr {
+    position: sticky;
+    top: 0px;
+    background: white;
+  }

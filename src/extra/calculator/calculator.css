@@ -1,0 +1,35 @@
+#border {
+    padding: 30px;
+    width: 70%; 
+    margin: auto
+}
+.input-box{
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    text-align: end;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.button-wrapper{
+    width: 70%; 
+    margin: auto;
+    display: flex;
+}
+.number-wrapper{
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px 5px;
+}
+.operator-wrapper{
+    margin-left: 5px; 
+    width: 30%; 
+    display: grid;
+    grid-template-columns: auto;
+    gap: 5px 5px;
+}
+.each-button:hover , .each-operator:hover{
+background: lightgray;
+}
