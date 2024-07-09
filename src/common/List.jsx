@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Loader from "./Loader";
 import "./list.css";
-import { useNavigate } from "react-router-dom";
 
-const List = ({ loading, columns, data, isPathRouting, route }) => {
+const List = ({ loading, columns, data, getClickedItem }) => {
   const [clickedRow, setClickedRow] = useState(undefined);
-  const navigate = useNavigate();
 
   return (
     <Loader loading={loading}>
@@ -21,12 +19,8 @@ const List = ({ loading, columns, data, isPathRouting, route }) => {
           {data.map((e) => (
             <tr
               onClick={() => {
-                if (isPathRouting) {
-                  navigate(`/${route}/${e.id}`);
-                } else {
-                  navigate(`/${route}`, { state: { id: e.id } });
-                }
                 setClickedRow(e);
+                getClickedItem(e);
               }}
               style={{
                 border: "solid thin",

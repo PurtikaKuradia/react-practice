@@ -6,6 +6,12 @@ import BackButton from "./common/backButton.jsx";
 import ErrorPage from "./common/ErrorPage.jsx";
 import PostDetails from "./Posts/post-details.jsx";
 import TodoData from "./common/todo-data.jsx";
+import Uplifting from "./uplifting-state/upLifting-state.jsx";
+import FormSubmit from "./FormState/formsubmit.jsx";
+import MovingDot from "./FormState/movingDot.jsx";
+import ContactApp from "./FormState/Chat/contactApp.jsx";
+import Parent from "./communication/parent.jsx";
+import DetailListParent from "./communication/detailListParent.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +34,30 @@ function App() {
     {
       path: "/todo-data",
       element: <TodoData />,
+    },
+    {
+      path: "/uplifting-state",
+      element: <Uplifting />,
+    },
+    {
+      path: "/form",
+      element: <FormSubmit />,
+    },
+    {
+      path: "/movingDot",
+      element: <MovingDot />,
+    },
+    {
+      path: "/contactApp",
+      element: <ContactApp />,
+    },
+    {
+      path: "/communication",
+      element: <Parent />,
+    },
+    {
+      path: "/detailListParent",
+      element: <DetailListParent />,
     },
     {
       path: "*",
