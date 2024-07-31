@@ -4,7 +4,8 @@ import List from "./List";
 
 const ListWithHeader = ({
   title,
-  list: { columns, data, loading, getClickedItem },
+  list: { columns, data, loading, getClickedItem, style },
+  style: parentStyle,
 }) => {
   const navigate = useNavigate();
   return (
@@ -17,12 +18,15 @@ const ListWithHeader = ({
         back
       </button>
       <Header as="h2" title={title} />
-      <List
-        loading={loading}
-        data={data}
-        columns={columns}
-        getClickedItem={getClickedItem}
-      />
+      <div style={parentStyle}>
+        <List
+          loading={loading}
+          data={data}
+          columns={columns}
+          getClickedItem={getClickedItem}
+          style={style}
+        />
+      </div>
     </div>
   );
 };

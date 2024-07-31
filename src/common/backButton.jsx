@@ -70,6 +70,30 @@ const BackButton = () => {
       >
         DetailListParent
       </button>
+      <button
+        style={{ margin: "10px" }}
+        onClick={() => {
+          navigate("/messenger");
+        }}
+      >
+        Messenger
+      </button>
+      <button
+        style={{ margin: "10px" }}
+        onClick={() => {
+          navigate("/contextApp");
+        }}
+      >
+        ContextApp
+      </button>
+      <button
+        style={{ margin: "10px" }}
+        onClick={() => {
+          navigate("/themeApp");
+        }}
+      >
+        ThemeApp
+      </button>
     </>
   );
 };

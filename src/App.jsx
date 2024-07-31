@@ -12,6 +12,9 @@ import MovingDot from "./FormState/movingDot.jsx";
 import ContactApp from "./FormState/Chat/contactApp.jsx";
 import Parent from "./communication/parent.jsx";
 import DetailListParent from "./communication/detailListParent.jsx";
+import Messenger from "./Messege/messenger.jsx";
+import ContextApp from "./UseContextApp/contextApp.jsx";
+import ThemeApp from "./Theme/themeApp.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -58,6 +61,18 @@ function App() {
     {
       path: "/detailListParent",
       element: <DetailListParent />,
+    },
+    {
+      path: "/messenger",
+      element: <Messenger />,
+    },
+    {
+      path: "/contextApp",
+      element: <ContextApp />,
+    },
+    {
+      path: "/themeApp",
+      element: <ThemeApp />,
     },
     {
       path: "*",

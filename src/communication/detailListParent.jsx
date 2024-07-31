@@ -10,18 +10,18 @@ const DetailListParent = () => {
   };
 
   return (
-    <>
-      <div>
+    <div style={{ height: " 500px" }}>
+      <div style={{ height: "250px", overflow: "hidden" }}>
         <DetailList getClickedItem={getClickedItem} />
       </div>
-      <div>
+      <div style={{ height: "250px" }}>
         {clickedItem ? (
           <DetailChild id={clickedItem.id} />
         ) : (
-          <div>Nothing selected</div>
+          <div style={{ height: "250px" }}>Nothing selected</div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 export default DetailListParent;

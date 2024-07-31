@@ -7,7 +7,7 @@ const DetailList = ({ getClickedItem }) => {
   const { state } = useLocation();
   console.log("state", state);
   return (
-    <>
+    <div>
       <ListWithHeader
         title="Todos"
         route="todo-data"
@@ -20,9 +20,11 @@ const DetailList = ({ getClickedItem }) => {
             { header: "User Id", access: "userId" },
           ],
           getClickedItem: getClickedItem,
+          style: { overflow: "auto", height: "160px" },
         }}
+        style={{ overflow: "hidden" }}
       />
-    </>
+    </div>
   );
 };
 export default DetailList;
