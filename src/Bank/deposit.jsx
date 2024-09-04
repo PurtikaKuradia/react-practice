@@ -24,9 +24,6 @@ export default function Deposit() {
   const handleClose = () => {
     setIsDepositModalOpen(false);
   };
-  const handleClick = () => {
-    setOpen(true);
-  };
 
   const handleSnackBarClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -53,15 +50,14 @@ export default function Deposit() {
   return (
     <div>
       <div>
-        <Button onClick={handleClick}>Open Snackbar</Button>
         <Snackbar
           open={open}
           autoHideDuration={6000}
           onClose={handleSnackBarClose}
-          message="Note archived"
+          message={`Amount credited ${amount}`}
           action={action}
         />
-      </div>{" "}
+      </div>
       <Modal
         open={isDepositModalOpen}
         onClose={handleClose}
@@ -97,6 +93,7 @@ export default function Deposit() {
             onClick={() => {
               if (amount?.trim()) {
                 setBalance(Number(balance) + Number(amount));
+                setOpen(true);
                 setCreditList((prev) => [...prev, { type: "credit", amount }]);
               }
             }}
