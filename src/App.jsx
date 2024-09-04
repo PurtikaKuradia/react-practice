@@ -6,6 +6,15 @@ import BackButton from "./common/backButton.jsx";
 import ErrorPage from "./common/ErrorPage.jsx";
 import PostDetails from "./Posts/post-details.jsx";
 import TodoData from "./common/todo-data.jsx";
+import CounterContextApp from "./Counter/counterContextApp.jsx";
+import FormApp from "./FormColor/formApp.jsx";
+import Home from "./Bank/home.jsx";
+import Login from "./Bank/login.jsx";
+import SignUp from "./Bank/signUp.jsx";
+import Deposit from "./Bank/deposit.jsx";
+import Debit from "./Bank/debit.jsx";
+import Statement from "./Bank/statement.jsx";
+import Services from "./Bank/services.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,16 +39,50 @@ function App() {
       element: <TodoData />,
     },
     {
+      path: "/counter",
+      element: <CounterContextApp />,
+    },
+    {
+      path: "/form",
+      element: <FormApp />,
+    },
+    {
+      path: "/bank",
+      element: <Home />,
+      children: [
+        {
+          path: "account",
+          element: <Services />,
+        },
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "sign-up",
+          element: <SignUp />,
+        },
+        {
+          path: "deposit",
+          element: <Deposit />,
+        },
+        {
+          path: "withdraw",
+          element: <Debit />,
+        },
+        {
+          path: "statement",
+          element: <Statement />,
+        },
+      ],
+    },
+    {
       path: "*",
       element: <ErrorPage />,
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

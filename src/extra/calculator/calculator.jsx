@@ -1,7 +1,7 @@
 import "./calculator.css";
 import { useState } from "react";
 import Button from "./button";
-import Display from "../../extra/Display";
+import Display from "../Display";
 
 const getResult = (operator, num1, num2) => {
   switch (operator) {
