@@ -6,6 +6,7 @@ import { Box, ThemeProvider } from "@mui/material";
 import Debit from "./debit";
 import Deposit from "./deposit";
 import Statement from "./statement";
+import Header from "./header";
 
 const theme = createTheme({});
 export default function Home() {
@@ -56,6 +57,7 @@ export default function Home() {
               <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar> */}
+          <Header />
           <Outlet />
         </Box>
         {pathname !== "/bank/sign-up" && <Navigate to="login" />}

@@ -21,12 +21,12 @@ export default function Services() {
   }
   return (
     <Box
-      height={200}
+      height={220}
       width={200}
-      my={5}
+      my={12}
       display="flex"
       alignItems="center"
-      gap={4}
+      gap={5}
       p={2}
       sx={{
         "& > :not(style)": { m: 3, width: "40ch" },
@@ -39,7 +39,7 @@ export default function Services() {
       autoComplete="off"
     >
       <Stack
-        spacing={3}
+        spacing={4}
         direction="column"
         alignItems="center"
         justifyContent="center"

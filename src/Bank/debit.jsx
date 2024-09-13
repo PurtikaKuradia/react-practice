@@ -58,6 +58,7 @@ export default function Debit() {
                   setBalance(Number(balance) - Number(amount));
                   alert("Your Current balance is:" + Number(balance));
                   setCreditList((prev) => [...prev, { type: "debit", amount }]);
+                  setAmount();
 
                   console.log("debited", balance);
                 } else {

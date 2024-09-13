@@ -3,10 +3,16 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { useContext } from "react";
 import Button from "@mui/material/Button";
+import { BankDataContext } from "./bankDataContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const { 
+         loggedIn,
+      setLoggedIn,
+    } = useContext(BankDataContext);
   const navigate = useNavigate();
 
   return (
@@ -41,7 +47,7 @@ export default function Header() {
                 navigate("/bank/sign-up");
               }}
             >
-              Sign-up
+             {loggedIn ? log-out : sign-up} 
             </Button>
           </Toolbar>
         </AppBar>
