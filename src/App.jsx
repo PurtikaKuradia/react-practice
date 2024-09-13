@@ -15,6 +15,7 @@ import Deposit from "./Bank/deposit.jsx";
 import Debit from "./Bank/debit.jsx";
 import Statement from "./Bank/statement.jsx";
 import Services from "./Bank/services.jsx";
+import ContactHeader from "./Contact Manager/contactHeader.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -73,6 +74,10 @@ function App() {
         {
           path: "statement",
           element: <Statement />,
+        },
+        {
+          path: "header",
+          element: <ContactHeader />,
         },
       ],
     },

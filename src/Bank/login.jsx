@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Header from "./header";
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -19,10 +20,11 @@ export default function Login() {
   console.log("==> login", theme);
   return (
     <>
+      <Header />
       <Box
-        height={300}
+        height={280}
         width={300}
-        my={5}
+        my={10}
         display="flex"
         alignItems="center"
         gap={4}
