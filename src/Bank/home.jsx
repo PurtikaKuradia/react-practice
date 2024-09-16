@@ -3,9 +3,6 @@ import { BankDataContext } from "./bankDataContext";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { Box, ThemeProvider } from "@mui/material";
-import Debit from "./debit";
-import Deposit from "./deposit";
-import Statement from "./statement";
 import Header from "./header";
 
 const theme = createTheme({});
@@ -39,31 +36,15 @@ export default function Home() {
       }}
     >
       <ThemeProvider theme={theme}>
-        <Box>
-          {/* <AppBar position="static">
-            <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                News
-              </Typography>
-              <Button color="inherit">Login</Button>
-            </Toolbar>
-          </AppBar> */}
-          <Header />
-          <Outlet />
+        <Box className="wrapper">
+          <Box className="header-wrapper" style={{ height: "64px" }} mb={2}>
+            <Header />
+          </Box>
+          {pathname !== "/bank/sign-up" && <Navigate to="login" />}
+          <Box className="body-wrapper" style={{ height: "calc(100% - 80px)" }}>
+            <Outlet />
+          </Box>
         </Box>
-        {pathname !== "/bank/sign-up" && <Navigate to="login" />}
-        <Debit />
-        <Deposit />
-        <Statement />
       </ThemeProvider>
     </BankDataContext.Provider>
   );

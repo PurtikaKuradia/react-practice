@@ -9,7 +9,6 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -20,23 +19,17 @@ export default function Login() {
   console.log("==> login", theme);
   return (
     <>
-     
       <Box
-        height={280}
         width={300}
-        my={10}
         display="flex"
         alignItems="center"
-        gap={4}
-        p={2}
+        p={1}
         sx={{
           "& > :not(style)": { m: 6, width: "40ch" },
           border: "1px solid",
           borderColor: "grey.500",
           borderRadius: 1,
         }}
-        component="form"
-        noValidate
         autoComplete="off"
       >
         <Stack

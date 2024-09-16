@@ -6,14 +6,24 @@ import Typography from "@mui/material/Typography";
 import { useContext } from "react";
 import Button from "@mui/material/Button";
 import { BankDataContext } from "./bankDataContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { 
-         loggedIn,
-      setLoggedIn,
-    } = useContext(BankDataContext);
+  const { loggedIn, setLoggedIn } = useContext(BankDataContext);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  console.log("path", typeof pathname);
+
+  const handleOnclick = () => {
+    if (loggedIn) {
+      navigate("/bank/login");
+      setLoggedIn(false);
+    } else if (pathname === "/bank/sign-up") {
+      navigate("/bank/login");
+    } else {
+      navigate("/bank/sign-up");
+    }
+  };
 
   return (
     <>
@@ -43,11 +53,13 @@ export default function Header() {
             <Button
               style={{ marginRight: "20px" }}
               color="inherit"
-              onClick={() => {
-                navigate("/bank/sign-up");
-              }}
+              onClick={handleOnclick}
             >
-             {loggedIn ? log-out : sign-up} 
+              {loggedIn
+                ? "log-out"
+                : pathname === "/bank/sign-up"
+                ? "login"
+                : "sign-up"}
             </Button>
           </Toolbar>
         </AppBar>

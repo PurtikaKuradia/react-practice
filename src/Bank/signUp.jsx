@@ -17,21 +17,17 @@ export default function SignUp() {
 
   return (
     <Box
-      height={380}
       width={300}
-      my={5}
       display="flex"
       alignItems="center"
-      gap={4}
+      gap={3}
       p={1}
       sx={{
-        "& > :not(style)": { m: 4, width: "40ch" },
+        "& > :not(style)": { m: 3, width: "40ch" },
         border: "1px solid",
         borderColor: "grey.500",
         borderRadius: 1,
       }}
-      component="form"
-      noValidate
       autoComplete="off"
     >
       <Stack
@@ -40,13 +36,14 @@ export default function SignUp() {
         alignItems="center"
         justifyContent="center"
       >
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h6" gutterBottom>
           Sign-Up
         </Typography>
         <TextField
           sx={{ m: 1, width: "30ch" }}
           id="outlined-basic"
           label="Name"
+          size="small"
           variant="outlined"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -55,6 +52,7 @@ export default function SignUp() {
           sx={{ m: 1, width: "30ch" }}
           id="outlined-basic"
           label="Age"
+          size="small"
           variant="outlined"
           value={age}
           onChange={(e) => setAge(e.target.value)}
@@ -63,6 +61,7 @@ export default function SignUp() {
           sx={{ m: 1, width: "30ch" }}
           id="outlined-basic"
           label="Email"
+          size="small"
           variant="outlined"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -72,12 +71,13 @@ export default function SignUp() {
           type="password"
           id="filled-basic"
           label="Password"
+          size="small"
           variant="outlined"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button
-          style={{ cursor: "grab" }}
+          style={{ cursor: "grab", size: "small" }}
           variant="contained"
           onClick={() => {
             if (email?.trim()) {
