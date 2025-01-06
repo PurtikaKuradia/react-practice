@@ -16,3 +16,4 @@ Currently, two official plugins are available:
 3. Commit the changes `git commit -m "commit message"`
    (committing changes)
 4. push the changes `git push -u origin HEAD`
+5. track the commits `git log` options --oneline

@@ -16,6 +16,7 @@ import Debit from "./Bank/debit.jsx";
 import Statement from "./Bank/statement.jsx";
 import Services from "./Bank/services.jsx";
 import ContactHeader from "./Contact Manager/contactHeader.jsx";
+import Accordion from "./Accordion/accordion.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,6 +47,10 @@ function App() {
     {
       path: "/form",
       element: <FormApp />,
+    },
+    {
+      path: "/accordion",
+      element: <Accordion />,
     },
     {
       path: "/bank",

@@ -1,38 +1,70 @@
 import { useContext } from "react";
 import { BankDataContext } from "./bankDataContext";
 import Box from "@mui/material/Box";
+import * as React from "react";
 import {
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
+  List,
+  ListItem,
+  ListItemText,
+  useTheme,
 } from "@mui/material";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { height } from "@fortawesome/free-brands-svg-icons/fa42Group";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+
+const handleColor = (type, theme) => {
+  return type === "credit"
+    ? theme.palette.success.main
+    : theme.palette.error.main;
+};
 
 export default function Statement() {
+  const theme = useTheme();
+  console.log("==> theme", theme);
   const { balance, creditList, isStatementModalOpen, setIsStatementModalOpen } =
     useContext(BankDataContext);
 
   const handleClose = () => {
     setIsStatementModalOpen(false);
   };
-  const arrayDataItems = creditList.map((i) => (
-    <div>
-      <li>
-        {i.type} - {i.amount}
-      </li>
-    </div>
-  ));
+
+  const arrayDataItems = creditList.map((i) => {
+    return (
+      <div>
+        <List
+          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+        >
+          <ListItem alignItems="flex-start">
+            <ListItemText
+              secondary={
+                <Typography
+                  component="span"
+                  variant="body2"
+                  sx={{ color: handleColor(i.type, theme), display: "inline" }}
+                >
+                  {i.type} - {i.amount}
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider />
+        </List>
+      </div>
+    );
+  });
   return (
     <div>
       <Dialog
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          m: 4,
-          py: 4,
+          m: 2,
+          py: 2,
           px: 4,
         }}
         open={isStatementModalOpen}
@@ -69,48 +101,15 @@ export default function Statement() {
             pb: 0,
             px: 2,
             margin: 2,
-            border: "1px solid",
-            borderColor: "grey.300",
+            borderColor: "grey.400",
             borderLeft: 0,
             borderRight: 0,
+            borderTop: 0,
           }}
         >
           {arrayDataItems}
         </DialogContent>
       </Dialog>
     </div>
-    // <div>
-    //   <Modal
-    //     open={isStatementModalOpen}
-    //     onClose={handleClose}
-    //     aria-labelledby="modal-modal-title"
-    //     aria-describedby="modal-modal-description"
-    //   >
-    //     <Box
-    //       sx={{
-    //         position: "absolute",
-    //         top: "50%",
-    //         left: "50%",
-    //         transform: "translate(-50%, -50%)",
-    //         width: 300,
-    //         "& > :not(style)": { m: 2, width: "30ch" },
-    //         bgcolor: "background.paper",
-    //         border: "2px solid #000",
-    //         boxShadow: 24,
-    //         p: 4,
-    //       }}
-    //     >
-    //       <Box sx={{ py: 2 }}>
-    //         <Typography
-    //           variant="body2"
-    //           sx={{ pt: 1, pb: 2, color: "grey.700" }}
-    //         >
-    //           Current Balance: {balance}
-    //         </Typography>
-    //       </Box>
-    //       {arrayDataItems}
-    //     </Box>
-    //   </Modal>
-    // </div>
   );
 }

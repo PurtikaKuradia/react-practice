@@ -14,6 +14,17 @@ export default function SignUp() {
   const [age, setAge] = useState();
 
   const navigate = useNavigate();
+  const handleValidation = () => {
+    if (!name) {
+      alert("Please enter your name");
+    } else if (!age) {
+      alert("Please enter your age");
+    } else if (!email) {
+      alert("Please enter your email");
+    } else if (!password) {
+      alert("Password should not be empty");
+    }
+  };
 
   return (
     <Box
@@ -47,6 +58,7 @@ export default function SignUp() {
           variant="outlined"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required="true"
         />
         <TextField
           sx={{ m: 1, width: "30ch" }}
@@ -56,6 +68,7 @@ export default function SignUp() {
           variant="outlined"
           value={age}
           onChange={(e) => setAge(e.target.value)}
+          required="true"
         />
         <TextField
           sx={{ m: 1, width: "30ch" }}
@@ -65,6 +78,7 @@ export default function SignUp() {
           variant="outlined"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required="true"
         />
         <TextField
           sx={{ m: 1, width: "30ch" }}
@@ -75,11 +89,13 @@ export default function SignUp() {
           variant="outlined"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required="true"
         />
         <Button
           style={{ cursor: "grab", size: "small" }}
           variant="contained"
           onClick={() => {
+            handleValidation();
             if (email?.trim()) {
               localStorage.setItem(
                 email,
@@ -89,10 +105,10 @@ export default function SignUp() {
                   email,
                   password,
                   balance: 0,
-                  CreditList,
+                  CreditList: [],
                 })
               );
-              navigate("/bank/account");
+              navigate("/bank/login");
             }
           }}
         >
